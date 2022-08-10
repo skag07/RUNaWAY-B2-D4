@@ -12,8 +12,6 @@ pipeline {
     } 
     
             
-        }
-        
         stages {
 
 		stage('Build') {
@@ -50,5 +48,7 @@ pipeline {
 			sh 'docker logout'
 		}
 	}
+        
+        
     
 }
