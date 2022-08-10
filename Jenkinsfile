@@ -3,7 +3,7 @@ pipeline {
     environment {
         DOCKERHUB_CREDENTIALS=credentials('saeed-dockerhub-token')
         AWS_ACCESS_KEY_ID     = credentials('saeed-aws-secret-key-id')
-        AWS_SECRET_ACCESS_KEY = credentials('Saeed-aws-secret-access-key')
+        AWS_SECRET_ACCESS_KEY = credentials('saeed-aws-secret-access-key')
         ARTIFACT_NAME = 'Dockerrun.aws.json'
         AWS_S3_BUCKET = 'saeed-belt2d4-artifacts-123456'
         AWS_EB_APP_NAME = 'Saeed-sample-application-b2d4'
@@ -45,7 +45,7 @@ pipeline {
                 always {
                     junit '**/target/surefire-reports/TEST-*.xml'
 
-                    sh 'docker logout'
+                    //sh 'docker logout'
                 }
 
                
