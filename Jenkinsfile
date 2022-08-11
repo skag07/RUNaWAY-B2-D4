@@ -8,8 +8,8 @@ pipeline {
   		AWS_SECRET_ACCESS_KEY = credentials('Saeed-aws-secret-key-id')
 		ARTIFACT_NAME = 'Dockerrun.aws.json'
 		AWS_S3_BUCKET = 'saeed-belt2d4-artifacts-123456'
-		AWS_EB_APP_NAME = 'Saeed-sample-application-b2d4'
-      		AWS_EB_ENVIRONMENT_NAME = 'Saeedsampleapplicationb2d4-env'
+		AWS_EB_APP_NAME = 'Saeed-B2D4'
+      		AWS_EB_ENVIRONMENT_NAME = 'Saeedb2d4-env'
       		AWS_EB_APP_VERSION = "${BUILD_ID}"
 	}
 
@@ -18,7 +18,7 @@ pipeline {
 		stage('Build') {
 
 			steps {
-				sh 'docker build -t skag07/belt2day4:latest .'
+				sh 'docker build -t skag07/belt2day4-saeed:latest .'
 			}
 		}
 
@@ -32,7 +32,7 @@ pipeline {
 		stage('Push') {
 
 			steps {
-				sh 'docker push skag07/belt2day4:latest'
+				sh 'docker push skag07/belt2day4-saeed:latest'
 			}
 		}
 
