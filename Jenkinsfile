@@ -18,7 +18,7 @@ pipeline {
 		stage('Build') {
 
 			steps {
-				sh 'docker build -t skag07/saeed-exercise:latest .'
+				sh 'docker build -t skag07/belt2day4:latest .'
 			}
 		}
 
@@ -32,7 +32,7 @@ pipeline {
 		stage('Push') {
 
 			steps {
-				sh 'docker push skag07/saeed-exercise:latest'
+				sh 'docker push skag07/belt2day4:latest'
 			}
 		}
 
