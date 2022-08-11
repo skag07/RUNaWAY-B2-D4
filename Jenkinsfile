@@ -12,12 +12,12 @@ pipeline {
     } 
     
             
-        stages {
+    stages {
 
 		stage('Build') {
 
 			steps {
-				sh 'docker build -t chandradeoarya/dojo-jump:latest .'
+				sh 'docker build -t skag07/saeed-exercise:latest .'
 			}
 		}
 
@@ -31,7 +31,7 @@ pipeline {
 		stage('Push') {
 
 			steps {
-				sh 'docker push chandradeoarya/dojo-jump:latest'
+				sh 'docker push skag07/saeed-exercise:latest'
 			}
 		}
 
@@ -41,13 +41,14 @@ pipeline {
                 sh 'aws elasticbeanstalk create-application-version --application-name $AWS_EB_APP_NAME --version-label $AWS_EB_APP_VERSION --source-bundle S3Bucket=$AWS_S3_BUCKET,S3Key=$ARTIFACT_NAME'
                 sh 'aws elasticbeanstalk update-environment --application-name $AWS_EB_APP_NAME --environment-name $AWS_EB_ENVIRONMENT_NAME --version-label $AWS_EB_APP_VERSION'
             }
-	}
+	    }
+        post {
+		    always {
+			    sh 'docker logout'
+		    }
+	    }
     }
-	post {
-		always {
-			sh 'docker logout'
-		}
-	}
+	
         
         
     
