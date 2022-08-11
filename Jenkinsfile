@@ -3,14 +3,14 @@ pipeline {
 	agent any
 
 	environment {
-		  DOCKERHUB_CREDENTIALS=credentials('saeed-dockerhub-token')
-		  AWS_ACCESS_KEY_ID     = credentials('saeed-aws-secret-key-id')
+		DOCKERHUB_CREDENTIALS = credentials('saeed-dockerhub-token')
+		AWS_ACCESS_KEY_ID     = credentials('saeed-aws-secret-key-id')
   		AWS_SECRET_ACCESS_KEY = credentials('saeed-aws-secret-access-key')
-		  ARTIFACT_NAME = 'Dockerrun.aws.json'
-		  AWS_S3_BUCKET = 'saeed-belt2d4-artifacts-123456'
-		  AWS_EB_APP_NAME = 'Saeed-sample-application-b2d4'
-      AWS_EB_ENVIRONMENT_NAME = 'Saeedsampleapplicationb2d4-env'
-      AWS_EB_APP_VERSION = "${BUILD_ID}"
+		ARTIFACT_NAME = 'Dockerrun.aws.json'
+		AWS_S3_BUCKET = 'saeed-belt2d4-artifacts-123456'
+		AWS_EB_APP_NAME = 'Saeed-sample-application-b2d4'
+      		AWS_EB_ENVIRONMENT_NAME = 'Saeedsampleapplicationb2d4-env'
+      		AWS_EB_APP_VERSION = "${BUILD_ID}"
 	}
 
 	stages {
@@ -44,10 +44,6 @@ pipeline {
             }
 	}
     }
-	post {
-		always {
-			sh 'docker logout'
-		}
-	}
+	
 
 }
