@@ -18,7 +18,7 @@ pipeline {
 		stage('Build') {
 
 			steps {
-				sh 'docker pull skag07/belt2day4-saeed:latest'
+				sh 'docker build -t "skag07/belt2day4-saeed:latest" .'
 			}
 		}
 
