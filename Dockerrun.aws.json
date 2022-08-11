@@ -1,7 +1,7 @@
 {
     "AWSEBDockerrunVersion": "1",
     "Image": {
-      "Name": "registry.https://hub.docker.com/repository/docker/skag07/belt2day4-saeed"
+      "Name": "registry.hub.docker.com/repository/docker/skag07/belt2day4-saeed"
     },
     "Ports": [
       {
